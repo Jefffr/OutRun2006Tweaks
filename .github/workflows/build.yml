@@ -34,7 +34,7 @@ jobs:
         run: |
           Set-Content -Path build/_deps/sdl-src/src/joystick/gdk/SDL_gameinputjoystick.c -Value ""
           (Get-Content build/_deps/sdl-build/include-config-release/build_config/SDL_build_config.h) -replace '#define SDL_JOYSTICK_GAMEINPUT 1', '/* #undef SDL_JOYSTICK_GAMEINPUT */' | Set-Content build/_deps/sdl-build/include-config-release/build_config/SDL_build_config.h
-       
+      
       - name: Build
         run: |
           cmake --build build --config ${{matrix.build_type}}
